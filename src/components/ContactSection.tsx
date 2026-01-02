@@ -38,7 +38,7 @@ export function ContactSection() {
                   Email
                 </p>
                 <a className="group inline-flex items-center gap-2 text-xl font-medium hover:text-primary transition-colors" href="mailto:iammodiamond@gmail.com">
-                  mo@gmail.com
+                  modeveloper@gmail.com
                   <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </div>
