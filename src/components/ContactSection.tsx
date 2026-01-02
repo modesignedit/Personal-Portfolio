@@ -1,26 +1,19 @@
 import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
-
-const socialLinks = [
-  {
-    icon: Github,
-    label: "GitHub",
-    href: "https://github.com",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: "https://linkedin.com",
-  },
-  {
-    icon: Twitter,
-    label: "Twitter",
-    href: "https://twitter.com",
-  },
-];
-
+const socialLinks = [{
+  icon: Github,
+  label: "GitHub",
+  href: "https://github.com"
+}, {
+  icon: Linkedin,
+  label: "LinkedIn",
+  href: "https://linkedin.com"
+}, {
+  icon: Twitter,
+  label: "Twitter",
+  href: "https://twitter.com"
+}];
 export function ContactSection() {
-  return (
-    <section id="contact" className="py-32 md:py-40 border-t border-border">
+  return <section id="contact" className="py-32 md:py-40 border-t border-border">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
@@ -44,11 +37,8 @@ export function ContactSection() {
                 <p className="text-sm text-muted-foreground uppercase tracking-widest mb-3">
                   Email
                 </p>
-                <a
-                  href="mailto:hello@example.com"
-                  className="group inline-flex items-center gap-2 text-xl font-medium hover:text-primary transition-colors"
-                >
-                  hello@example.com
+                <a className="group inline-flex items-center gap-2 text-xl font-medium hover:text-primary transition-colors" href="mailto:iammodiamond@gmail.com">
+                  iammodiamond@gmail.com
                   <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </div>
@@ -59,24 +49,14 @@ export function ContactSection() {
                   Social
                 </p>
                 <div className="flex items-center gap-6">
-                  {socialLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                      aria-label={link.label}
-                    >
+                  {socialLinks.map(link => <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label={link.label}>
                       <link.icon className="h-5 w-5" />
-                    </a>
-                  ))}
+                    </a>)}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
