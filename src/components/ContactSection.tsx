@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
   {
@@ -16,50 +16,64 @@ const socialLinks = [
     label: "Twitter",
     href: "https://twitter.com",
   },
-  {
-    icon: Mail,
-    label: "Email",
-    href: "mailto:hello@example.com",
-  },
 ];
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Section Header */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get In <span className="text-gradient">Touch</span>
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-8" />
+    <section id="contact" className="py-32 md:py-40 border-t border-border">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            {/* Left */}
+            <div>
+              <p className="text-primary text-sm tracking-widest uppercase mb-4">
+                Contact
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                Let's work together
+              </h2>
+              <p className="text-muted-foreground leading-relaxed max-w-md">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              </p>
+            </div>
 
-          <p className="text-muted-foreground text-lg mb-12">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!
-          </p>
+            {/* Right */}
+            <div className="space-y-10 lg:pt-12">
+              {/* Email */}
+              <div>
+                <p className="text-sm text-muted-foreground uppercase tracking-widest mb-3">
+                  Email
+                </p>
+                <a
+                  href="mailto:hello@example.com"
+                  className="group inline-flex items-center gap-2 text-xl font-medium hover:text-primary transition-colors"
+                >
+                  hello@example.com
+                  <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </a>
+              </div>
 
-          {/* Email */}
-          <a
-            href="mailto:hello@example.com"
-            className="inline-block text-2xl md:text-3xl font-semibold text-primary hover:text-accent transition-colors duration-200 mb-12"
-          >
-            hello@example.com
-          </a>
-
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                className="group flex items-center justify-center w-14 h-14 rounded-full bg-secondary hover:bg-primary transition-colors duration-200"
-                aria-label={link.label}
-              >
-                <link.icon className="h-6 w-6 text-secondary-foreground group-hover:text-primary-foreground transition-colors duration-200" />
-              </a>
-            ))}
+              {/* Social Links */}
+              <div>
+                <p className="text-sm text-muted-foreground uppercase tracking-widest mb-3">
+                  Social
+                </p>
+                <div className="flex items-center gap-6">
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      aria-label={link.label}
+                    >
+                      <link.icon className="h-5 w-5" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

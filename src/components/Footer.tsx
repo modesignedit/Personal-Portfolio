@@ -3,13 +3,13 @@ export function Footer() {
 
   return (
     <footer className="py-8 border-t border-border">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-sm">
-            © {currentYear} John Developer. All rights reserved.
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} John Developer
           </p>
-          <p className="text-muted-foreground text-sm">
-            Built with <span className="text-primary">React</span> & <span className="text-accent">TypeScript</span>
+          <p className="text-sm text-muted-foreground">
+            Built with React & TypeScript
           </p>
         </div>
       </div>

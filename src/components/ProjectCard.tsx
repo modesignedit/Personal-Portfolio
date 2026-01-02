@@ -1,6 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { ArrowUpRight } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -8,7 +6,7 @@ interface ProjectCardProps {
   technologies: string[];
   demoUrl?: string;
   githubUrl?: string;
-  imageUrl?: string;
+  index: number;
 }
 
 export function ProjectCard({
@@ -17,54 +15,52 @@ export function ProjectCard({
   technologies,
   demoUrl,
   githubUrl,
+  index,
 }: ProjectCardProps) {
+  const href = demoUrl || githubUrl || "#";
+  
   return (
-    <div className="group relative bg-card rounded-xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-      {/* Project Image Placeholder */}
-      <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-        <div className="text-6xl opacity-50 group-hover:scale-110 transition-transform duration-300">
-          🚀
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block py-10 border-b border-border hover:border-primary transition-colors first:border-t"
+    >
+      <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+        {/* Number */}
+        <span className="text-sm text-muted-foreground tabular-nums">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        
+        {/* Content */}
+        <div className="flex-1 space-y-4">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="text-xl md:text-2xl font-semibold tracking-tight group-hover:text-primary transition-colors">
+              {title}
+            </h3>
+            <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+          </div>
+          
+          <p className="text-muted-foreground leading-relaxed max-w-2xl">
+            {description}
+          </p>
+          
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2 pt-2">
+            {technologies.map((tech) => (
+              <span
+                key={tech}
+                className="text-xs text-muted-foreground"
+              >
+                {tech}
+                {technologies.indexOf(tech) < technologies.length - 1 && (
+                  <span className="ml-2 text-border">·</span>
+                )}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
-          {title}
-        </h3>
-        <p className="text-muted-foreground mb-4 line-clamp-3">
-          {description}
-        </p>
-
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="text-xs">
-              {tech}
-            </Badge>
-          ))}
-        </div>
-
-        {/* Links */}
-        <div className="flex items-center gap-3">
-          {demoUrl && (
-            <Button asChild size="sm" variant="default">
-              <a href={demoUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4 mr-2" />
-                Live Demo
-              </a>
-            </Button>
-          )}
-          {githubUrl && (
-            <Button asChild size="sm" variant="outline">
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 mr-2" />
-                Code
-              </a>
-            </Button>
-          )}
-        </div>
-      </div>
-    </div>
+    </a>
   );
 }
