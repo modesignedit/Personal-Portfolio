@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# My Personal Portfolio Website
 
 ## Project info
 
