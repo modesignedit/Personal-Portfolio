@@ -2,15 +2,13 @@
 
 ## Project info
 
-**URL**: https://code-comet-display.lovable.app
-
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://code-comet-display.lovable.app) and start prompting.
+Simply visit the [Lovable Project](https://lovable.dev) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
